@@ -1,10 +1,13 @@
 ﻿using co2e.Models;
+using co2e.Services;
 using System;
 
 namespace ConsoleApp1
 {
     class Program
     {
+
+        public static APIRequest apirequest = new APIRequest();
         static void Main(string[] args)
         {
             Menu();
@@ -17,12 +20,12 @@ namespace ConsoleApp1
 
             if (opcao == 1)
             {
-                var request = new EmissionFactorRequest()
+                var requestid = new EmissionFactorRequest()
                 {
                     activity_id = "freight_vehicle-vehicle_type-hgv_refrig-fuel_source_diesel-vehicle_weight_na-percentage_load_100"
                 };
 
-                var requestoi = new ParametersRequest()
+                var requestparameters = new ParametersRequest()
                 {
                     weight = 10,
                     weight_unit = "t",
@@ -33,7 +36,7 @@ namespace ConsoleApp1
 
                 };
 
-                //services.Services(request, requestoi);
+                apirequest.ApiClimatiqRequest(requestid, requestparameters);
 
             }
         }

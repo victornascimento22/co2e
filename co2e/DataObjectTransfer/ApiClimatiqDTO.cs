@@ -10,6 +10,8 @@ namespace co2e.DataObjectTransfer
     public class ApiClimatiqDTO
     {
 
+        public int Id_ApiClimatiqResponse { get; set; }
+
         [JsonProperty("co2e")]
         public double Co2e { get; set; }
 

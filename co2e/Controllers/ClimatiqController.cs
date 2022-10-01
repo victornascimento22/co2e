@@ -23,7 +23,7 @@ namespace co2e.Controllers
 
         {
 
-            var resultado = apirep.Services(id.emissionFactorRequest, id.parameters);
+            var resultado = apirep.ApiClimatiqRequest(id.emissionFactorRequest, id.parameters);
 
             var objeto = _mapper.Map<ApiResponseMapper>(resultado);
             

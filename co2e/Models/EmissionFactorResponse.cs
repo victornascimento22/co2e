@@ -5,9 +5,14 @@ using System.Threading.Tasks;
 
 namespace co2e.Models
 {
-    public class EmissionFactorRequest
+    public class EmissionFactorResponse
     {
+
         public string activity_id { get; set; }
-        
+        public string uuid { get; set; }
+
+
+
+
     }
 }

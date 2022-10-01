@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace co2e.DataObjectTransfer
 {
-    public class EmissionFactorDTO
+    public class EmissionFactorResponseDTO
     {
 
         public string activity_id { get; set; }
