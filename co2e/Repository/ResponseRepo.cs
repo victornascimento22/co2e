@@ -6,34 +6,72 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using co2e.DataObjectTransfer;
+using co2e.Mapper;
 
 namespace co2e.Repositorio
 {
     public class ResponseRepo
     {
-        private readonly string _connection = "asdasd";
+        private readonly string _connection = @"Data Source=ITELABD05\SQLEXPRESS;Initial Catalog=co2eAPI;Integrated Security=True;";
 
-        public bool SaveResponse(ApiClimatiqResponse apiresponse)
+        public bool SaveConstituentGasesApi(ConstituentGasesMapper constituentgases)
+        {
+            try
+            {
+                var query = @"INSERT INTO ConstituentGases
+                            (co2e_total, co2e_other, co2, ch4, n2o)
+                            VALUES(@co2e_total, @co2e_other, @co2, @ch4, @n2o";
+
+                using (var connection = new SqlConnection(_connection))
+                {
+                    var parametros = new
+                    {
+                        co2e_total = constituentgases.co2e_total,
+                        co2e_other = constituentgases.co2e_other,
+                        co2 = constituentgases.co2,
+                        ch4 = constituentgases.ch4,
+                        n2o = constituentgases.n2o
+
+                    };
+                    connection.Execute(query, parametros);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+                return false;
+
+            }
+
+
+        }
+
+
+
+        public bool SaveResponse(ApiResponseMapper apiresponse)
         {
             try
             {
                 var query = @"INSERT INTO ApiClimatiqResponse
-                                (Co2e, Co2eUnit, Co2eCalculationMethod, Co2eCalculationOrigin, EmissionFactor, ConstituentGases)
-                                VALUES(@co2e, @co2eunit, @co2ecalculationmethod, @co2ecalculationorigin, @id_emissionfactor, @constituentgases";
+                                (Co2e, Co2eUnit, Co2eCalculationMethod, Co2eCalculationOrigin, Id_ConstituentGases, Id_EmissionFactor)
+                                VALUES(@co2e, @co2eunit, @co2ecalculationmethod, @co2ecalculationorigin,@id_constituentgases, @id_emissionfactor";
 
                 using (var connection = new SqlConnection(_connection))
                 {
                     var parametros = new
                     {
 
-                        apiresponse.Co2e,
-                        apiresponse.Co2eCalculationMethod,
-                        apiresponse.Co2eCalculationOrigin,
-                        apiresponse.Co2eUnit,
-                        apiresponse.ConstituentGases,
-                        apiresponse.EmissionFactor,
+                        co2e = apiresponse.Co2e,
+                        co2eunit = apiresponse.Co2eCalculationMethod,
+                        co2ecalculationmethod = apiresponse.Co2eCalculationOrigin,
+                        co2ecalculationorigin = apiresponse.Co2eUnit,
+                        id_constituentgases = apiresponse.ConstituentGases,
+                        id_emissionfactor = apiresponse.EmissionFactor,
+
                     };
-                    connection.ExecuteAsync(query, parametros);
+                    connection.Execute(query, parametros);
                     return true;
                 }
             }
@@ -45,7 +83,7 @@ namespace co2e.Repositorio
             }
         }
 
-        public bool DeleteResponse(ApiClimatiqResponse apiresponse)
+        public bool DeleteResponse(ApiResponseMapper apiresponse)
         {
             try
             {

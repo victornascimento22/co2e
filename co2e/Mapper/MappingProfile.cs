@@ -9,14 +9,15 @@ using System.Threading.Tasks;
 
 namespace co2e
 {
-    public class MappingProfile : Profile
+    public class ApiClimatiqMappingProfile : Profile
     {
 
-        public MappingProfile()
+        public ApiClimatiqMappingProfile()
         {
              
             //origem >>>> destino
             CreateMap<ApiClimatiqDTO, ApiResponseMapper>()
+             .ForMember(dest => dest.Id_ApiClimatiqResponse, map => map.MapFrom(src => src.Id_ApiClimatiqResponse))
             .ForMember(dest => dest.Co2e, map => map.MapFrom(src => src.Co2e))
             .ForMember(dest => dest.Co2eUnit, map => map.MapFrom(src => src.Co2eUnit))
             .ForMember(dest => dest.Co2eCalculationMethod, map => map.MapFrom(src => src.Co2eCalculationMethod))

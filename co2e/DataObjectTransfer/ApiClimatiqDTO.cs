@@ -28,6 +28,8 @@ namespace co2e.DataObjectTransfer
         public EmissionFactorRequest EmissionFactor { get; set; }
 
         [JsonProperty("constituent_gases")]
-        public ConstituentGasesResponse ConstituentGases { get; set; }
+        
+        public ConstituentGases ConstituentGases { get; set; }
     }
+ 
 }

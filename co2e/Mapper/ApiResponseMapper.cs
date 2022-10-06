@@ -8,8 +8,8 @@ namespace co2e
 {
     public class ApiResponseMapper
     {
+        public int Id_ApiClimatiqResponse { get; set; }
 
-        
         public double Co2e { get; set; }
 
 
@@ -25,7 +25,7 @@ namespace co2e
         public EmissionFactorRequest EmissionFactor { get; set; }
 
 
-        public ConstituentGasesResponse ConstituentGases { get; set; }
+        public ConstituentGases ConstituentGases { get; set; }
 
     }
 }

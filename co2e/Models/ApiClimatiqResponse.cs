@@ -11,7 +11,6 @@ namespace co2e.Models
 
         public int Id_ApiClimatiqResponse { get; set; }
 
-
         [JsonProperty("co2e")]
         public double Co2e { get; set; }
 
@@ -28,7 +27,7 @@ namespace co2e.Models
         public EmissionFactorRequest EmissionFactor { get; set; }
 
         [JsonProperty("constituent_gases")]
-        public ConstituentGasesResponse ConstituentGases { get; set; }
+        public ConstituentGases ConstituentGases { get; set; }
 
 
 

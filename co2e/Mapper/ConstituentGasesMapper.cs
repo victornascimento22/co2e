@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace co2e.Models
+﻿namespace co2e.Mapper
 {
-    public class ConstituentGases
+    public class ConstituentGasesMapper
     {
         public int Id_ConstituentGases { get; set; }
         public double co2e_total { get; set; }
@@ -13,6 +8,6 @@ namespace co2e.Models
         public double co2 { get; set; }
         public double ch4 { get; set; }
         public double n2o { get; set; }
-    }
 
+    }
 }

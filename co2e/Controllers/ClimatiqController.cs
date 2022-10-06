@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using co2e.Mapper;
 using co2e.Models;
+using co2e.Repositorio;
 using co2e.Services;
 using co2e.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -15,23 +17,30 @@ namespace co2e.Controllers
     [ApiController]
     public class ClimatiqController : ControllerBase
     {
-        public APIRequest apirep = new APIRequest();
+        public APIRequest apiservices = new APIRequest();
+        public ResponseRepo responseRepo = new ResponseRepo();
         private IMapper _mapper;
 
         [HttpPost]
-        public IActionResult Salvar([FromBody] emission_factor id)
-
+        public IActionResult Salvar(emission_factor id)
         {
-
-            var resultado = apirep.ApiClimatiqRequest(id.emissionFactorRequest, id.parameters);
-
-            var objeto = _mapper.Map<ApiResponseMapper>(resultado);
-            
+            var resultado = apiservices.ApiClimatiqRequest(id.emissionFactorRequest, id.parameters);
 
             if (resultado == null)
+            {
                 return NotFound();
+            }
 
-            return Ok(resultado);
+            var constituentgases = _mapper.Map<ConstituentGasesMapper>(resultado.ConstituentGases);
+
+                responseRepo.SaveConstituentGasesApi(constituentgases);
+
+                var apiresponse = _mapper.Map<ApiResponseMapper>(resultado);  
+            
+                responseRepo.SaveResponse(apiresponse);
+                return Ok();
+            
+            
         }
 
         public ClimatiqController(IMapper mapper)
@@ -41,5 +50,16 @@ namespace co2e.Controllers
 
         }
 
+        [HttpGet]
+
+        public IActionResult Teste()
+        {
+
+
+            return Ok("ok funcionou");
+
+        }
     }
+
+    
 }
