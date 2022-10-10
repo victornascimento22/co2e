@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace co2e.Models
 {
-    public class EmissionFactorRequest
+    public class EmissionFactor
     {
         //public int Id_EmissionFactor { get; set; }
         public string activity_id { get; set; }

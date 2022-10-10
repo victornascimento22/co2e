@@ -31,14 +31,22 @@ namespace co2e.Controllers
                 return NotFound();
             }
 
-            var constituentgases = _mapper.Map<ConstituentGasesMapper>(resultado.ConstituentGases);
 
-                responseRepo.SaveConstituentGasesApi(constituentgases);
+            var constituentgases = resultado.ConstituentGases;
+            responseRepo.SaveConstituentGasesApi(constituentgases);
 
-                var apiresponse = _mapper.Map<ApiResponseMapper>(resultado);  
+
+            return Ok();
+
+            //var 
+            //var constituentgases = _mapper.Map<ConstituentGasesMapper>(resultado.ConstituentGases);
+
+            //    responseRepo.SaveConstituentGasesApi(constituentgases);
+
+            //    var apiresponse = _mapper.Map<ApiResponseMapper>(resultado);  
             
-                responseRepo.SaveResponse(apiresponse);
-                return Ok();
+            //    responseRepo.SaveResponse(apiresponse);
+            //    return Ok();
             
             
         }

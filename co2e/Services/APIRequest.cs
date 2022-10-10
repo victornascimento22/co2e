@@ -15,7 +15,7 @@ namespace co2e.Services
     {
         public static List<ApiClimatiqDTO> root = new List<ApiClimatiqDTO>();
 
-        public ApiClimatiqDTO ApiClimatiqRequest(EmissionFactorRequest activityid, ParametersRequest parametersmodel)
+        public ApiClimatiqDTO ApiClimatiqRequest(EmissionFactor activityid, ParametersRequest parametersmodel)
         {
 
             HttpClient httpclient = new HttpClient();

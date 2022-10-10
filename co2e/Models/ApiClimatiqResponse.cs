@@ -24,7 +24,7 @@ namespace co2e.Models
         public string Co2eCalculationOrigin { get; set; }
 
         [JsonProperty("emission_factor")]
-        public EmissionFactorRequest EmissionFactor { get; set; }
+        public EmissionFactor EmissionFactor { get; set; }
 
         [JsonProperty("constituent_gases")]
         public ConstituentGases ConstituentGases { get; set; }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Curso JavaScript Progressivo</title>
+
+  <style>
+
+* {
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:12px;
+}
+    .menu {
+  margin:0px;
+      width:100%;
+      height:30px;
+      border: 5px solid;
+  background-color:black;
+    }
+ul {
+    margin: 0;
+    
+    padding:0;
+}
+ 
+li {
+    list-style: none; 
+    margin: 10px;
+    display: inline;
+}
+li a {
+
+    padding: 5px 10px; 
+    margin:0;
+    border: 0px solid #f00; 
+ 
+    text-decoration: none;
+    color:white;
+    /* cantos arredondados */
+    -webkit-border-radius:1px;
+    -moz-border-radius:1px;
+    border-radius:1px;
+}
+li a:hover {
+    background: #CCC;
+    color: #000; 
+    border-color: #000;
+}
+  
+</style>
+ </head>
+   <body>
+    
+    
+    <div class="menu">
+    <ul>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Conteudo</a></li>
+    </ul>
+     </div>
+<!-- 
+     <form>
+     <select placeholder="Activity ID" name="activity_id">
+      <option value="freight_vehicle-vehicle_type-hgv_refrig-fuel_source_diesel-vehicle_weight_na-percentage_load_100">freight</option>
+     </select> <br>
+     <select name="weight_unit"> <option value="kg">KG</option>
+     </select>
+     <select name="distance_unit"> 
+    <option value ="km">KM</option>
+     </select><br> -->
+     <input id="activity_id" name="activity_id" value="" type="text" placeholder="activity id">   
+     <input id="weight" name="weight" value="" type="text" placeholder="peso">   
+     <input id="weight_unit" name="weight_unit" value="" type="text" placeholder="unidade peso">
+     <input id="distance" name="distance" value="" type="text" placeholder="Distancia">
+     <input id="distance_unit" name="distance_unit" value="" type="text" placeholder="unidade distancia">       
+     
+     <button onclick="Salvar()">Confirmar</button>
+     </form>  
+</body>
+   
+   <script src="js/myscript.js">
+
+   </script>
+
+
+</html>

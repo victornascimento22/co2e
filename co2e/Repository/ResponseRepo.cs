@@ -14,22 +14,23 @@ namespace co2e.Repositorio
     {
         private readonly string _connection = @"Data Source=ITELABD05\SQLEXPRESS;Initial Catalog=co2eAPI;Integrated Security=True;";
 
-        public bool SaveConstituentGasesApi(ConstituentGasesMapper constituentgases)
+        public bool SaveConstituentGasesApi(ConstituentGases constituentgases)
         {
             try
             {
                 var query = @"INSERT INTO ConstituentGases
-                            (co2e_total, co2e_other, co2, ch4, n2o)
-                            VALUES(@co2e_total, @co2e_other, @co2, @ch4, @n2o";
+                            (ch4, co2, co2e_other, co2e_total, n2o)
+                            VALUES(@ch4, @co2, @co2e_other, @co2e_total, @n2o)";
 
                 using (var connection = new SqlConnection(_connection))
                 {
                     var parametros = new
                     {
-                        co2e_total = constituentgases.co2e_total,
-                        co2e_other = constituentgases.co2e_other,
-                        co2 = constituentgases.co2,
+                   
                         ch4 = constituentgases.ch4,
+                        co2 = constituentgases.co2,
+                        co2e_other = constituentgases.co2e_other,
+                        co2e_total = constituentgases.co2e_total,                                                                
                         n2o = constituentgases.n2o
 
                     };
@@ -42,13 +43,8 @@ namespace co2e.Repositorio
 
                 Console.WriteLine(ex.Message);
                 return false;
-
             }
-
-
         }
-
-
 
         public bool SaveResponse(ApiResponseMapper apiresponse)
         {

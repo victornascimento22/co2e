@@ -22,7 +22,7 @@ namespace co2e
         public string Co2eCalculationOrigin { get; set; }
 
 
-        public EmissionFactorRequest EmissionFactor { get; set; }
+        public EmissionFactor EmissionFactor { get; set; }
 
 
         public ConstituentGases ConstituentGases { get; set; }
